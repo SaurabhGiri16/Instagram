@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create new Account</title>
-    <link rel="Short Icon" type="image/png" ; href="/static/icon/insta-icon.png">
+    <title>Create New Account</title>
+    <link rel="Short Icon" type="image/png" ; th:href="@{/icon/insta-icon.png}">
     <style>
         #login-form{
             margin: 5% 0% 0% 25%;
@@ -55,10 +55,10 @@
     <div style="margin: 3% 0% 0% 15%;">
     
     <div id="login-form">
-        <img src="/static/icon/insta-logo.png"><br>
+        <img th:src="@{/icon/insta-logo.png}"><br>
         <b ><p style="padding-left: 90px;">Sign up to see photos and</p><p style="padding-left: 90px;margin-top: -12px;"> videos from your friends.</p></b>
-        <form> 
-            <input type="text" placeholder="Phone  number or email address" required><br><br>
+        <form th:action="@{/register}" th:method="post">
+            <input type="email" placeholder="Phone  number or email address" required><br><br>
             <input type="text" placeholder="Full Name" required><br><br>
             <input type="text" placeholder="Username" required><br><br>
             <input type="password" placeholder="password" required minlength="5"><br><br>

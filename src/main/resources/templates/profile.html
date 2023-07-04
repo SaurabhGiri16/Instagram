@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Profile</title>
-    <link rel="Short Icon" type="image/png" ; href="/static/icon/insta-icon.png">
+    <link rel="Short Icon" type="image/png" ; th:href="@{/icon/insta-icon.png}">
     <style>
     html,
     body {
@@ -161,26 +161,26 @@
 </div>
 <div class="container">
     <div class="left-panel" onclick="allNone()">
-        <img src="/static/icon/insta-logo.png">
-        <p><a href=""><img src="/static/icon/home.png" style="height: 20px; width: 25px;"><span> Home</span></a></p>
-        <p><a href=""><img src="/static/icon/search.png" style="height: 25px; width: 25px;"><span> Search</span></a></p>
-        <p><a href=""><img src="/static/icon/explore.png" style="height: 25px; width: 25px;"><span> Explore</span></a></p>
-        <p><a href=""><img src="/static/icon/reels.png" style="height: 25px; width: 25px;"><span> Reels</span></a></p>
-        <p><a href=""><img src="/static/icon/massage.png" style="height: 25px; width: 25px;"><span> Messages</span></a></p>
-        <p><a href=""><img src="/static/icon/notification.png" style="height: 25px; width: 25px;"><span> Notifications</span></a></p>
-        <p><a href=""><img src="/static/icon/create.png" style="height: 25px; width: 25px;"><span> Create</span></a></p>
-        <p><a href=""><img src="/static/icon/profile.png" style="height: 25px; width: 25px; border-radius: 50%;"><span> Profile</span></a></p>
-        <p><a href=""><img src="/static/icon/more.png" style="height: 25px; width: 25px;"><span>  More</span></a></p>
+        <img th:src="@{/icon/insta-logo.png}">
+        <p><a href=""><img th:src="@{/icon/home.png}" style="height: 20px; width: 25px;"><span> Home</span></a></p>
+        <p><a href=""><img th:src="@{/icon/search.png}" style="height: 25px; width: 25px;"><span> Search</span></a></p>
+        <p><a href=""><img th:src="@{/icon/explore.png}" style="height: 25px; width: 25px;"><span> Explore</span></a></p>
+        <p><a href=""><img th:src="@{/icon/reels.png}" style="height: 25px; width: 25px;"><span> Reels</span></a></p>
+        <p><a href=""><img th:src="@{/icon/massage.png}" style="height: 25px; width: 25px;"><span> Messages</span></a></p>
+        <p><a href=""><img th:src="@{/icon/notification.png}" style="height: 25px; width: 25px;"><span> Notifications</span></a></p>
+        <p><a href=""><img th:src="@{/icon/create.png}" style="height: 25px; width: 25px;"><span> Create</span></a></p>
+        <p><a href=""><img th:src="@{/icon/profile.png}" style="height: 25px; width: 25px; border-radius: 50%;"><span> Profile</span></a></p>
+        <p><a href=""><img th:src="@{/icon/more.png}" style="height: 25px; width: 25px;"><span>  More</span></a></p>
     </div>
     <div class="right-panel">
         <div id="profile">
             <div id="left-p" onclick="allNone()">
-                <img src="/static/icon/profile.png">
+                <img th:src="@{/icon/profile.png}">
             </div>
             <div id="right-p">
                 <span style="font-size: 22px;">saurabh_giri_4159 </span> <span style="margin-left: 15px;"><button onclick="editUser()">Edit
               Profile</button><button onclick="settingPopup()" style="margin-left: 15px; border: none; background-color: white;"><img
-                    src="/static/icon/setting1.png"></button></span>
+                    th:src="@{/icon/setting1.png}"></button></span>
                 <br><br>
                 <span ><b>131</b> posts</span><span class="details"><b>131</b> followers</span><span class="details"><b>131</b>
             following</span>
@@ -198,8 +198,5 @@
         </footer>
     </div>
 </div>
-
 </body>
-
-
 </html>

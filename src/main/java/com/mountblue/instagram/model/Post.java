@@ -3,26 +3,22 @@ package com.mountblue.instagram.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.Document;
+import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "posts")
 public class Post {
-    private String caption;
-    private String imageUrl;
-
-    public Document toDocument() {
-        Document document = new Document();
-        document.append("caption", caption);
-        document.append("imageUrl", imageUrl);
-        return document;
-    }
-
-    public static Post fromDocument(Document document) {
-        String caption = document.getString("caption");
-        String imageUrl = document.getString("imageUrl");
-        return new Post(caption, imageUrl);
-    }
+    private String userName;
+    private ArrayList<String> followers;
+    private ArrayList<String> following;
+    private ArrayList<String> tagList;
+    private byte[] content;
+    private String fileType;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
 

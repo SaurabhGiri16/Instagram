@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="Short Icon" type="image/png" ; href="/static/icon/insta-icon.png">
+    <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+    }
+
+    .left-panel {
+      flex: 1;
+      background-color: white;
+      border-right: .5px solid grey;
+    }
+
+    .left-panel img {
+      margin-top: 60px;
+      margin-left: 15px;
+      width: 120px;
+    }
+
+    .left-panel p {
+      margin-left: 15px;
+      height: 40px;
+    }
+
+    .left-panel p a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+    a:hover{
+     cursor:grab;
+    }
+  .right-panel {
+      flex: 4;
+      background-color: white;
+      overflow: auto;
+      margin-top: 20px;
+    }
+
+    #profile {
+      display: flex;
+      height: 350px;
+      ;
+    }
+
+    #left-p {
+      flex: 2;
+    }
+
+    #left-p img {
+      border-radius: 120px;
+      height: 130px;
+      margin: 40px 0px 0px 100px;
+    }
+
+    #right-p {
+      margin-top: 40px;
+      flex: 4;
+    }
+
+    .details {
+      margin-left: 22px;
+    }
+
+    footer {
+      margin: 10% 0% 5% 5%;
+      font-size: 10px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: gray;
+    }
+
+    #short-form span a {
+      margin-left: 10%;
+      color: black;
+      text-decoration: none;
+    }
+    #setting{
+      display: none;
+      position: absolute;
+      margin:15% 25% 25% 50%;
+      border: 1px solid black;
+      height: 300px;
+      width: 200px;
+      background-color: white;
+    }
+    #setting a{
+      margin-left: 60px;
+    }
+    #setting button{
+      margin-left: 60px;
+    }
+    #user-edit{
+      display: none;
+      position: absolute;
+      margin:10% 25% 25% 35%;
+      border: 1px solid black;
+      height: 400px;
+      width: 500px;
+      background-color: white;
+    }
+  </style>
+    <script>
+    function settingPopup(){
+      var func = document.getElementById("setting");
+      if (func.style.display === "none") {
+        func.style.display = "block";
+      } else {
+        func.style.display = "none";
+      }
+    }
+  </script>
+    <script>
+    function editUser(){
+      var func = document.getElementById("user-edit");
+      if (func.style.display === "none") {
+        func.style.display = "block";
+      } else {
+        func.style.display = "none";
+      }
+    }
+  </script>
+    <script>
+    function allNone(){
+      var func = document.getElementById("user-edit");
+      var func1 = document.getElementById("setting");
+        func1.style.display="none";
+        func.style.display = "none";
+
+    }
+  </script>
+</head>
+
+<body>
+
+<div id="setting"><br>
+    <a>nsekjf</a><br><br>
+    <a>mcndsf</a><br><br>
+    <a>nsekjf</a><br><br>
+    <a>mvn</a><br><br>
+    <a>sdf</a><br><br>
+    <a>Help</a><br><br>
+    <a>Logout</a><br><br>
+    <button onclick="settingPopup()" style="border: none; background-color: transparent;">Cancle</button>
+</div>
+<div id="user-edit"><br>
+
+</div>
+<div class="container">
+    <div class="left-panel" onclick="allNone()">
+        <img src="/static/icon/insta-logo.png">
+        <p><a href=""><img src="/static/icon/home.png" style="height: 20px; width: 25px;"><span> Home</span></a></p>
+        <p><a href=""><img src="/static/icon/search.png" style="height: 25px; width: 25px;"><span> Search</span></a></p>
+        <p><a href=""><img src="/static/icon/explore.png" style="height: 25px; width: 25px;"><span> Explore</span></a></p>
+        <p><a href=""><img src="/static/icon/reels.png" style="height: 25px; width: 25px;"><span> Reels</span></a></p>
+        <p><a href=""><img src="/static/icon/massage.png" style="height: 25px; width: 25px;"><span> Messages</span></a></p>
+        <p><a href=""><img src="/static/icon/notification.png" style="height: 25px; width: 25px;"><span> Notifications</span></a></p>
+        <p><a href=""><img src="/static/icon/create.png" style="height: 25px; width: 25px;"><span> Create</span></a></p>
+        <p><a href=""><img src="/static/icon/profile.png" style="height: 25px; width: 25px; border-radius: 50%;"><span> Profile</span></a></p>
+        <p><a href=""><img src="/static/icon/more.png" style="height: 25px; width: 25px;"><span>  More</span></a></p>
+    </div>
+    <div class="right-panel">
+        <div id="profile">
+            <div id="left-p" onclick="allNone()">
+                <img src="/static/icon/profile.png">
+            </div>
+            <div id="right-p">
+                <span style="font-size: 22px;">saurabh_giri_4159 </span> <span style="margin-left: 15px;"><button onclick="editUser()">Edit
+              Profile</button><button onclick="settingPopup()" style="margin-left: 15px; border: none; background-color: white;"><img
+                    src="/static/icon/setting1.png"></button></span>
+                <br><br>
+                <span ><b>131</b> posts</span><span class="details"><b>131</b> followers</span><span class="details"><b>131</b>
+            following</span>
+                <br><br>
+                <span><b>Saurabh Giri</b></span>
+            </div>
+        </div>
+        <hr style="width: 90%;">
+        <div id="short-form" onclick="allNone()">
+            <span style="display: flex; margin-left: 25%;"><a href="#">posts </a><a href="#">reels </a><a href="#">saved </a><a href="#">tagged </a></span>
+        </div>
+        <footer onclick="allNone()">
+            <pre> <a href="https://about.meta.com/" >Meta</a>  <a href="https://about.instagram.com/" >About</a>   <a href="https://about.instagram.com/en_US/blog" >Blog</a>   <a href="https://about.instagram.com/about-us/careers" >Jobs</a>   <a href="https://help.instagram.com/" >Help</a>   <a href="https://developers.facebook.com/docs/instagram" >API</a>   <a href="https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect" > Privacy</a>   <a href="https://help.instagram.com/581066165581870/" > Terms</a>   <a href="https://www.instagram.com/directory/profiles/" >Top accounts</a>   <a href="https://www.instagram.com/explore/locations/" >Locations</a>   <a href="https://www.instagram.com/web/lite/" >Instagram Lite</a>   <a href="https://www.facebook.com/help/instagram/261704639352628" >Contact uploading and non-users</a>   <a href="https://about.meta.com/technologies/meta-verified/" > Meta Verified</a></pre>
+            <p style="margin-left: 40%; font-size: 12px;">© 2023 Instagram Clone </p>
+        </footer>
+    </div>
+</div>
+
+</body>
+
+
+</html>

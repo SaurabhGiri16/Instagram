@@ -14,11 +14,21 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-     public boolean registerUser(User user){
-        if(userRepository.findByUserName(user.getUserName())==null) {
-            userRepository.save(user);
-            return true;
-        }
-        return false;
+     public boolean registerUser(User user) {
+         if (userRepository.findByUserName(user.getUserName()) == null) {
+             userRepository.save(user);
+             return true;
+         }
+         return false;
+     }
+
+    public void updateUser(User user) {
+        User user1 = userRepository.findByUserName(user.getUserName());
+        User existedUser = userRepository.findById(user1.getId());
+        existedUser.setEmail(user.getEmail());
+        existedUser.setFullName(user.getFullName());
+        existedUser.setPassword(user.getPassword());
+        existedUser.setBio(user.getBio());
+        userRepository.save(existedUser);
     }
 }

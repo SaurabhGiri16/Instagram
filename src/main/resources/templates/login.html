@@ -95,9 +95,9 @@
     <img id="image" th:src="@{/icon/home1.png}">
     <div id="login-form">
         <img th:src="@{/icon/insta-logo.png}"><br><br>
-        <form>
-            <input type="text" placeholder="Phone  number, username or email address" required><br><br>
-            <input type="password" placeholder="password" required><br><br>
+        <form th:action="@{/login}" th:method="post">
+            <input type="text" placeholder="Phone  number, username or email address" name="email" required><br><br>
+            <input type="password" placeholder="password" name="password" required><br><br>
             <input type="submit" value="Log in" style="border-radius: 10px; background-color: cornflowerblue;">
         </form>
         <br>

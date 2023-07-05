@@ -56,12 +56,13 @@
     
     <div id="login-form">
         <img th:src="@{/icon/insta-logo.png}"><br>
+        <p th:text="${existingUser}" style="color:red; position:absolute; margin:-2px;margin-left:100px;"></p>
         <b ><p style="padding-left: 90px;">Sign up to see photos and</p><p style="padding-left: 90px;margin-top: -12px;"> videos from your friends.</p></b>
         <form th:action="@{/register}" th:method="post">
-            <input type="email" placeholder="Phone  number or email address" required><br><br>
-            <input type="text" placeholder="Full Name" required><br><br>
-            <input type="text" placeholder="Username" required><br><br>
-            <input type="password" placeholder="password" required minlength="5"><br><br>
+            <input type="email" placeholder="Phone  number or email address" name="email" required><br><br>
+            <input type="text" placeholder="Full Name" name="fullName" required><br><br>
+            <input type="text" placeholder="Username" name="userName" required><br><br>
+            <input type="password" placeholder="password" name="password" required minlength="5"><br><br>
             <div style="font-size: 12px;"><p>People who use our service may have uploaded</p>
             <p style="margin-top: -12px;">your contact information to Instagram.<a href="#">Learn More</a></p>
             <p>By signing up, you agree to our <a href="#">Terms,</a></p> <p style="margin-top: -12px;"><a href="#">Privacy Policy</a> and <a href="#">Coockies Policy</a>.</p>

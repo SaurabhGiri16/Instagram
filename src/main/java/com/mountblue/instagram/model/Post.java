@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,16 +24,11 @@ public class Post {
     private String caption;
     private byte[] content;
     private String fileType;
-    private ArrayList<String> tagList;
-    private ArrayList<String> likes;
+    private List<String> tagList;
     private String location;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
-    public void prePersist() {
-        this.setCreatedAt(LocalDateTime.now().now());
-        this.setUpdatedAt(LocalDateTime.now().now());
-    }
 
 }
 

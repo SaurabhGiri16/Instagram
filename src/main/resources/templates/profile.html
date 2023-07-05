@@ -179,13 +179,13 @@
 </div>
 <div id="createPost" >
     <img th:src="@{/icon/publish.png}" onclick="allNone()"><br>
-<form th:action="@{/publish-post}" th:method="post" style="padding-left:80px;">
+<form th:action="@{/publish-post}" th:method="post" style="padding-left:80px;" enctype="multipart/form-data">
     <label><b>Upload Picture/Video</b></label><br>
-    <input type="file" name="content" required placeholder="upload Picture/Video" ><br>
+    <input type="file" name="file" required placeholder="upload Picture/Video" ><br>
     <label><b>Caption</b></label><br>
     <textarea name="caption" placeholder="Write Your Caption ..." required></textarea><br>
     <label><b>Tags</b></label><br>
-    <textarea type="text" name="tags" placeholder="#tag1 #tag2 ..."></textarea><br>
+    <textarea type="text" name="tags" placeholder="tag1 tag2 ..."></textarea><br>
     <label><b>Location</b></label><br>
     <input type="text" name="location" placeholder="location"><br>
     <input type="submit" value="Publish Post" >

@@ -24,5 +24,7 @@ public class User {
     private ArrayList<String> followers;
     private ArrayList<String> following;
     private String bio;
+    private String gender;
+    private String accountType;
 }
 

@@ -34,8 +34,4 @@ public class userController {
         return "create-account";
     }
 
-    @GetMapping("/profile")
-    public String profile() {
-        return "profile";
-    }
 }

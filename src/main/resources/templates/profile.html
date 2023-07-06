@@ -90,12 +90,16 @@
       position: absolute;
       margin:15% 25% 25% 50%;
       border: 1px solid black;
+      border-radius:20px;
       height: 300px;
-      width: 200px;
+      width: 300px;
       background-color: white;
+      text-align: center;
     }
     #setting a{
-      margin-left: 60px;
+
+       text-decoration:none;
+      color:black;
     }
     #setting button{
       margin-left: 60px;
@@ -108,6 +112,7 @@
       height: 400px;
       width: 500px;
       background-color: white;
+      border-radius:20px;
     }
     #createPost{
       display: none;
@@ -117,8 +122,22 @@
       height: 500px;
       width: 370px;
       background-color: white;
+      border-radius:20px;
     }
-
+    #createPost img{
+          border-radius:20px;
+}
+     .thumbnail-image {
+      width: 350px;
+      height: 350px;
+      margin-left:5px;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1px;
+    }
 
   </style>
     <script>
@@ -165,14 +184,13 @@
 <body>
 
 <div id="setting"><br>
-    <a>nsekjf</a><br><br>
-    <a>mcndsf</a><br><br>
-    <a>nsekjf</a><br><br>
-    <a>mvn</a><br><br>
-    <a>sdf</a><br><br>
-    <a>Help</a><br><br>
-    <a>Logout</a><br><br>
-    <button onclick="settingPopup()" style="border: none; background-color: transparent;">Cancle</button>
+    <a>Apps & websites</a><br><hr>
+    <a>Notifications</a><br><hr>
+    <a>Settings & Privacy</a><br><hr>
+    <a>QR Code</a><br><hr>
+    <a>Help</a><br><hr>
+    <a>Logout</a><br><hr>
+    <a th:href="@{/profile}">Cancel</a>
 </div>
 <div id="user-edit"><br>
 
@@ -181,7 +199,7 @@
     <img th:src="@{/icon/publish.png}" onclick="allNone()"><br>
 <form th:action="@{/publish-post}" th:method="post" style="padding-left:80px;" enctype="multipart/form-data">
     <label><b>Upload Picture/Video</b></label><br>
-    <input type="file" name="file" required placeholder="upload Picture/Video" ><br>
+    <input type="file" name="file" multiple required placeholder="upload Picture/Video" ><br>
     <label><b>Caption</b></label><br>
     <textarea name="caption" placeholder="Write Your Caption ..." required></textarea><br>
     <label><b>Tags</b></label><br>
@@ -202,7 +220,7 @@
         <a href=""><img th:src="@{/icon/massage.png}" style="height: 25px; width: 25px;"><span> Messages</span></a><br>
         <a href=""><img th:src="@{/icon/notification.png}" style="height: 25px; width: 25px;"><span> Notifications</span></a><br>
         <a onclick="openCreatePost()"><img th:src="@{/icon/create.png}" style="height: 25px; width: 25px;"><span> Create</span></a><br>
-        <a href=""><img th:src="@{/icon/profile.png}" style="height: 25px; width: 25px; border-radius: 50%;"><span> Profile</span></a><br>
+        <a href="/profile"><img th:src="@{/icon/profile.png}" style="height: 25px; width: 25px; border-radius: 50%;"><span> Profile</span></a><br>
         <a href="/profile"><img th:src="@{/icon/more.png}" style="height: 25px; width: 25px;"><span>  More</span></a><br>
     </div>
     <div class="right-panel">
@@ -211,8 +229,8 @@
                 <img th:src="@{/icon/profile.png}">
             </div>
             <div id="right-p">
-                <span style="font-size: 22px;">saurabh_giri_4159 </span> <span style="margin-left: 15px;"><button onclick="editUser()" >Edit
-              Profile</button><button onclick="settingPopup()" style="margin-left: 15px; border: none; background-color: white;"><img
+                <span style="font-size: 22px;">saurabh_giri_4159 </span> <span style="margin-left: 15px;"><a th:href="@{/accounts/edit}">Edit
+              Profile</a><button onclick="settingPopup()" style="margin-left: 15px; border: none; background-color: white;"><img
                     th:src="@{/icon/setting1.png}"></button></span>
                 <br><br>
                 <span ><b>131</b> posts</span><span class="details"><b>131</b> followers</span><span class="details"><b>131</b>
@@ -224,7 +242,11 @@
         <hr style="width: 90%;">
         <div id="short-form" onclick="allNone()">
             <span style="display: flex; margin-left: 25%;"><a href="#">posts </a><a href="#">reels </a><a href="#">saved </a><a href="#">tagged </a></span>
-        </div>
+        </div><br><br>
+        <div class="image-container">
+        <div th:each="var:${allPosts}" >
+            <a th:href="@{/all-view/{id}/{start}(id=${var.postId},start=${0})}"><img th:src="@{/view/{id}(id=${var.postId})}" class="thumbnail-image"></a>
+        </div></div>
         <footer onclick="allNone()">
             <pre> <a href="https://about.meta.com/" >Meta</a>  <a href="https://about.instagram.com/" >About</a>   <a href="https://about.instagram.com/en_US/blog" >Blog</a>   <a href="https://about.instagram.com/about-us/careers" >Jobs</a>   <a href="https://help.instagram.com/" >Help</a>   <a href="https://developers.facebook.com/docs/instagram" >API</a>   <a href="https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect" > Privacy</a>   <a href="https://help.instagram.com/581066165581870/" > Terms</a>   <a href="https://www.instagram.com/directory/profiles/" >Top accounts</a>   <a href="https://www.instagram.com/explore/locations/" >Locations</a>   <a href="https://www.instagram.com/web/lite/" >Instagram Lite</a>   <a href="https://www.facebook.com/help/instagram/261704639352628" >Contact uploading and non-users</a>   <a href="https://about.meta.com/technologies/meta-verified/" > Meta Verified</a></pre>
             <p style="margin-left: 40%; font-size: 12px;">© 2023 Instagram Clone </p>

@@ -22,7 +22,8 @@ public class Post {
     @Indexed(unique = true)
     private ObjectId postId;
     private String caption;
-    private byte[] content;
+   // private byte[] content;
+    private List<byte[]> contents;
     private String fileType;
     private List<String> tagList;
     private String location;
@@ -33,5 +34,8 @@ public class Post {
         this.setCreatedAt(LocalDateTime.now());
         this.setUpdatedAt(LocalDateTime.now());
     }
+
+
+
 }
 

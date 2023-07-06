@@ -147,8 +147,26 @@
     <h1>Settings</h1>
     <div id="settings">
     <h1>Edit Profile</h1>
-      <img th:src="@{/icon/profile.png}" id="p-img" >
+      <img th:src="@{/icon/profile.png}" id="p-img" onclick="openCreatePost()">
       <h2 style="text-align:center;">Saurabh_Giri_4159</h2>
+      <p style="text-align:center; color:blue;"><a onclick="openCreatePost()" >Change Profile Picture</a></p>
+      <br>
+      <form style="margin-left:40%;" th:action="@{/account/update}" th:method="post">
+        <label><b>Bio</b></label>
+        <textarea name="bio"></textarea><br><br>
+        <label><b>Gender</b></label>
+       <select name="gender" >
+         <option>Not Specified</option>
+         <option>Male</option>
+         <option>Female</option>
+       </select><br><br>
+        <label><b>Account Type</b></label>
+        <select name="accType">
+          <option>Public</option>
+          <option>Private</option>
+        </select><br><br>
+        <input type="submit">
+      </form>
     </div>
 
     <footer onclick="allNone()">

@@ -21,7 +21,7 @@ public class User {
     private String email;
     private String fullName;
     private String password;
-    private byte[] profilePic;
+    private byte[] profilePic=null;
     private ArrayList<String> followers = null;
     private ArrayList<String> following= null;
     private String bio =null;

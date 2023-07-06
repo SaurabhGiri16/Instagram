@@ -1,8 +1,11 @@
 package com.mountblue.instagram.controllers;
 
 import com.mountblue.instagram.model.Post;
+import com.mountblue.instagram.model.User;
+import com.mountblue.instagram.repository.UserRepository;
 import com.mountblue.instagram.service.PostService;
 import com.mountblue.instagram.service.ThumbnailGenerator;
+import com.mountblue.instagram.service.UserService;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.bson.types.ObjectId;
@@ -22,6 +25,11 @@ public class postController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
     @PostMapping("/publish-post")
     public String publishPost(@RequestParam("file") MultipartFile[] file , @ModelAttribute Post post, @RequestParam("tags") String tags) throws IOException {
         postService.publishPost(post, file, tags);
@@ -67,7 +75,9 @@ public class postController {
     }
 
     @GetMapping("/accounts/edit")
-    public String editProfile(){
+    public String editProfile(Model model){
+        User user = userRepository.findByUserName("Saurabh");
+        model.addAttribute("user", user);
         return "edit-profile";
     }
 

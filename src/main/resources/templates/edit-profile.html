@@ -53,12 +53,6 @@
      margin:0px 50px 0px 50px;
     }
 
-
-
-
-
-
-
     footer {
  margin: 100px 0px 50px 160px;
       font-size: 10px;
@@ -85,11 +79,22 @@
       background-color: white;
       border-radius:20px;
     }
+    #profileUpload{
+    display: none;
+      position: absolute;
+      margin:10% 25% 25% 35%;
+      border: 1px solid black;
+      height: 200px;
+      width: 300px;
+      background-color: white;
+      border-radius:20px;
+    }
     #createPost img{
           border-radius:20px;
 }
 #p-img{
    border-radius:50%; margin-left:42%;height:150px;
+
 }
 
 
@@ -111,11 +116,24 @@
         func.style.display = "none";
       }
     }
-
-  </script>
+    function profileUpload(){
+      var func = document.getElementById("profileUpload");
+      if (func.style.display === "none") {
+        func.style.display = "block";
+      } else {
+        func.style.display = "none";
+      }
+    }
+</script>
 </head>
 
 <body>
+<div id="profileUpload">
+  <form th:action="@{/upload-pic}" th:method="post" style="margin:50px 50px 50px 50px;" enctype="multipart/form-data">
+    <input type="file" name="profilePic"><br>
+    <input type="submit">
+  </form>
+</div>
 <div id="createPost" >
   <img th:src="@{/icon/publish.png}" onclick="allNone()"><br>
   <form th:action="@{/publish-post}" th:method="post" style="padding-left:80px;" enctype="multipart/form-data">
@@ -147,9 +165,9 @@
     <h1>Settings</h1>
     <div id="settings">
     <h1>Edit Profile</h1>
-      <img th:src="@{/icon/profile.png}" id="p-img" onclick="openCreatePost()">
+      <img th:src="@{/icon/profile.png}" id="p-img" onclick="profileUpload()">
       <h2 style="text-align:center;">Saurabh_Giri_4159</h2>
-      <p style="text-align:center; color:blue;"><a onclick="openCreatePost()" >Change Profile Picture</a></p>
+      <p style="text-align:center; color:blue;"><a onclick="profileUpload()" >Change Profile Picture</a></p>
       <br>
       <form style="margin-left:40%;" th:action="@{/account/update}" th:method="post">
         <label><b>Bio</b></label>

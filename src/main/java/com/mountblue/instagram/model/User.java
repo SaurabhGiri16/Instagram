@@ -21,10 +21,10 @@ public class User {
     private String email;
     private String fullName;
     private String password;
-    private ArrayList<String> followers;
-    private ArrayList<String> following;
-    private String bio;
-    private String gender;
-    private String accountType;
+    private ArrayList<String> followers = null;
+    private ArrayList<String> following= null;
+    private String bio =null;
+    private String gender = "Not Specified";
+    private String accountType = "Public";
 }
 

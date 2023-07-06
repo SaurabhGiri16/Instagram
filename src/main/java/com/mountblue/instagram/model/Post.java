@@ -22,20 +22,12 @@ public class Post {
     @Indexed(unique = true)
     private ObjectId postId;
     private String caption;
-   // private byte[] content;
     private List<byte[]> contents;
     private String fileType;
     private List<String> tagList;
     private String location;
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
-
-    public void prePersist() {
-        this.setCreatedAt(LocalDateTime.now());
-        this.setUpdatedAt(LocalDateTime.now());
-    }
-
-
 
 }
 

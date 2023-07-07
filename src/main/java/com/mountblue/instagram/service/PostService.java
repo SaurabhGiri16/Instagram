@@ -1,6 +1,8 @@
 package com.mountblue.instagram.service;
 
+import com.mountblue.instagram.model.Comment;
 import com.mountblue.instagram.model.Post;
+import com.mountblue.instagram.repository.CommentRepository;
 import com.mountblue.instagram.repository.PostRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     public boolean publishPost(Post post, MultipartFile[] file, String tags) throws IOException {
         List<byte[]> contents = new ArrayList<>();
@@ -41,6 +46,9 @@ public class PostService {
 
 
     public Post findFileByPostId(ObjectId id) {
-        return postRepository.findByPostId(id);
+        Post post = postRepository.findByPostId(id);
+        List<Comment> comments = commentRepository.findByPostId(id);  // Fetch comments by postId
+        post.setComments(comments);
+        return post;
     }
 }

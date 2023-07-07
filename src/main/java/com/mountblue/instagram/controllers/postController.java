@@ -4,8 +4,10 @@ import com.mountblue.instagram.model.Post;
 import com.mountblue.instagram.model.User;
 import com.mountblue.instagram.repository.UserRepository;
 import com.mountblue.instagram.service.PostService;
-import com.mountblue.instagram.service.ThumbnailGenerator;
+
+
 import com.mountblue.instagram.service.UserService;
+
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.bson.types.ObjectId;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -52,11 +53,10 @@ public class postController {
         }
     }
 
-
-
     @GetMapping("/all-view/{id}/{start}")
     public String allView(@PathVariable("id") ObjectId id , @PathVariable("start") Integer pageNumber, Model model){
         Post post = postService.findFileByPostId(id);
+
         model.addAttribute("post", post);
         model.addAttribute("currentPage", pageNumber);
         model.addAttribute("totalPages", post.getContents().size());

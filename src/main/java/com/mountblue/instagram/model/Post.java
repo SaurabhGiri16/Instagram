@@ -18,7 +18,6 @@ import java.util.List;
 @Document(collection = "posts")
 public class Post {
     @Id
-    @Indexed(unique = true)
     private ObjectId postId;
     private String caption;
     private List<byte[]> contents;
@@ -31,14 +30,5 @@ public class Post {
 
     @DBRef
     private List<Comment> comments;
-
-    public void prePersist() {
-        this.setCreatedAt(LocalDateTime.now());
-        this.setUpdatedAt(LocalDateTime.now());
-    }
-
-
-
-
 }
 

@@ -81,4 +81,11 @@ public class postController {
         return "edit-profile";
     }
 
+    @GetMapping("/home")
+    public String homePage(Model model){
+        List<Post> allPosts = postService.getAllPosts();
+        model.addAttribute("allPosts", allPosts);
+        return "home";
+    }
+
 }

@@ -32,7 +32,7 @@
     .thumbnail-image {
       width: 500px;
       height: 500px;
-      margin:100px 80px 80px 120px;
+      margin:25px 80px 30px 120px;
     }
     #close{
     margin-left:95%;
@@ -97,29 +97,31 @@ button {
                 th:if="${currentPage > 0}" style="margin-top:-50%;">&lt;&lt;previous</button></a>
         <a th:href="@{/all-view/{id}/{start}(id=${post.postId},start=${currentPage+1})}"><button
             th:if="${currentPage < totalPages-1}" style="float: right;">next>></button></a>
+        <br>
+        <div >
+            <form th:action="@{'/add-comment/' + ${post.postId}}" method="post">
+                <textarea name="commentText" placeholder="Add a comment..." required noresize></textarea><br>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
     </div>
-
-
-
     <div class="right">
         <a th:href="@{/profile}" id="close"><img th:src="@{/icon/close.png}"></a>
-        <h2 th:text="${post.caption}"></h2>
+<!--        <h2 th:text="${post.caption}"></h2>-->
+<!--         here user name -->
 
 <!--        <div>-->
 <!--            <span><strong>Tags:</strong></span>-->
-<!--            <span th:each="tag : ${post.tagList}" th:text="'#' + ${tag} + ' '"></span>-->
+<!--            <span th:each="tag : ${post.tagList}">-->
+<!--        <span th:if="${not #lists.isEmpty(tag)}">-->
+<!--            <span th:text="'#' + ${tag} + ' '"></span>-->
+<!--        </span>-->
+<!--    </span>-->
 <!--        </div>-->
-        <div>
-            <span><strong>Tags:</strong></span>
-            <span th:each="tag : ${post.tagList}">
-        <span th:if="${not #lists.isEmpty(tag)}">
-            <span th:text="'#' + ${tag} + ' '"></span>
-        </span>
-    </span>
-        </div>
 
         <div>
-            <h3>Comments:</h3>
+            <h2>Comments:</h2>
+            <hr>
             <ul>
                 <li th:each="comment : ${post.comments}">
                     <!--                    <span th:text="${comment.user.username}"></span>:-->
@@ -130,24 +132,10 @@ button {
                     <form th:action="@{'/edit-comment/' + ${comment.id}}"  style="display: inline;">
                         <button type="submit">Edit</button>
                     </form>
-
                 </li>
             </ul>
         </div>
     </div>
-
 </div>
-
-<div class="comment-section">
-    <form th:action="@{'/add-comment/' + ${post.postId}}" method="post">
-        <textarea name="commentText" placeholder="Add a comment..." rows="4"></textarea>
-        <button type="submit">Comment</button>
-    </form>
-</div>
-
-
-
 </body>
 </html>
-<!--?start='+${currentPage-1}-->
-<!--?start='+${currentPage*10+11}-->

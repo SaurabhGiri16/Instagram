@@ -38,25 +38,6 @@
     margin-left:95%;
     }
 
-<!--.comment-section {-->
-<!--    position: absolute;-->
-<!--  transform: translateX(100%);-->
-<!--}-->
-
-<!--button {-->
-<!--  width: 100px;-->
-<!--  margin: 3px;-->
-<!--  margin-right: 2px;-->
-<!--}-->
-
-<!--.comment-section textarea {-->
-<!--  width: 150%;-->
-<!--}-->
-
-<!--.comment-section button {-->
-<!--  margin-top: 10px;-->
-<!--}-->
-
 .comment-section {
   position: fixed;
   bottom: 0;
@@ -107,18 +88,6 @@ button {
     </div>
     <div class="right">
         <a th:href="@{/profile}" id="close"><img th:src="@{/icon/close.png}"></a>
-<!--        <h2 th:text="${post.caption}"></h2>-->
-<!--         here user name -->
-
-<!--        <div>-->
-<!--            <span><strong>Tags:</strong></span>-->
-<!--            <span th:each="tag : ${post.tagList}">-->
-<!--        <span th:if="${not #lists.isEmpty(tag)}">-->
-<!--            <span th:text="'#' + ${tag} + ' '"></span>-->
-<!--        </span>-->
-<!--    </span>-->
-<!--        </div>-->
-
         <div>
             <h2>Comments:</h2>
             <hr>

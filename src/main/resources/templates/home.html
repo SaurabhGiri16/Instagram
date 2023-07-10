@@ -53,7 +53,7 @@
     }
 
      #home-img{
-      width:550px;
+      height:550px;
       margin:20px 0px 10px 80px;
     }
      #home-post{
@@ -114,8 +114,8 @@
   <div class="right-panel">
     <div id="right-left-panel" style="flex:4;">
   <div th:each="var: ${allPosts}">
-    <span id="home-post"><b>Saurabh_giri_4159</b></span>
-    <a th:href="@{/all-view/{id}/{start}(id=${var.postId},start=${0})}"><img th:src="@{/view/{id}(id=${var.postId})}" id="home-img"></a>
+    <span id="home-post"><b>Saurabh_giri_4159</b></span><br>
+    <a th:href="@{/all-view/{id}/{start}(id=${var.postId},start=${0})}"><img th:src="@{/view/{id}(id=${var.postId})}" id="home-img"></a><br>
     <pre style="margin-left:100px;"><img th:src="@{/icon/favorite1.png}"><img th:src="@{/icon/favorite.png}">   <a th:href="@{/all-view/{id}/{start}(id=${var.postId},start=${0})}"><img th:src="@{/icon/comment.png}"></a></pre>
     <form style="margin-left:80px;">
       <input type="text" placeholder="Type Your Comment..">
@@ -125,8 +125,8 @@
     <hr style="width:80%;">
   </div>
     </div>
-      <div id="right-right-panel" style="flex:2;">
-      <span><img th:src="@{/icon/profile.png}" style="height:40px; border-radius:50%;"><span style="font-size:30px; margin-left:20px;">saurabh_giri_4159</span></span>
+      <div id="right-right-panel" style="flex:2; padding-right:20px;">
+      <span><img th:src="@{/icon/profile.png}" style="height:40px; border-radius:50%;"><span style="font-size:25px; margin-left:20px;" >saurabh_giri_4159</span></span>
        <hr>
         <p><span style="font-size:20px;color:gray;">Suggested for you</span><span style="float:right;">See All </span></span></p>
       </div>

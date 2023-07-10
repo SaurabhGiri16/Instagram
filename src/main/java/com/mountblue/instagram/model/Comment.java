@@ -18,8 +18,8 @@ public class Comment {
     private ObjectId id;
     private ObjectId postId;
     private String commentText;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
 //    @DBRef
 //    private User user;
